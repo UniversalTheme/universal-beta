@@ -1,15 +1,10 @@
 <?php
-
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) exit;
-
 /**
  * The template part for displaying a message that posts cannot be found.
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Universal
- * @since Universal 1.0
+ * @package universal
  */
 ?>
 
@@ -19,9 +14,9 @@ if ( !defined( 'ABSPATH' ) ) exit;
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php if ( is_home() || is_archive() && current_user_can( 'publish_posts' ) ) : ?>
+		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'universal' ), admin_url( 'post-new.php' ) ); ?></p>
+			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'universal' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
 		<?php elseif ( is_search() ) : ?>
 

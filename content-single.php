@@ -1,7 +1,6 @@
 <?php
 /**
- * @package Universal
- * @since Universal 1.0
+ * @package universal
  */
 ?>
 
@@ -15,24 +14,13 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-
-		<?php if ( has_post_thumbnail() ) : // Featured Image ?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
-				<?php the_post_thumbnail(); ?>
-			</a>
-		<?php endif; ?>
-
 		<?php the_content(); ?>
-
-		<?php if ( get_the_author_meta('description') != '' ) : // Add Author info ?>
-				<div id="author-meta">
-					<?php if (function_exists('get_avatar')) { echo get_avatar( get_the_author_meta('email'), '80' ); }?>
-				<div class="about-author"><?php _e('About','responsive'); ?> <?php the_author_posts_link(); ?></div>
-				<p><?php the_author_meta('description') ?></p>
-			</div><!-- end of #author-meta -->
-		<?php endif; // no description, no author's meta ?>
-
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'universal' ), 'after' => '</div>' ) ); ?>
+		<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'universal' ),
+				'after'  => '</div>',
+			) );
+		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
@@ -72,4 +60,4 @@
 
 		<?php edit_post_link( __( 'Edit', 'universal' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- #post-## -->

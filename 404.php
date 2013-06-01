@@ -1,16 +1,8 @@
 <?php
-
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) exit;
-
 /**
  * The template for displaying 404 pages (Not Found).
  *
- * @file			404.php
- * @package			Universal 
- * @filesource		wp-content/themes/universal/404.php
- * @link			http://codex.wordpress.org/Creating_an_Error_404_Page
- * @since			Universal 1.0
+ * @package universal
  */
 
 get_header(); ?>
@@ -18,28 +10,47 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-			<article id="post-0" class="post error404 not-found">
+			<article id="post-0" class="post not-found">
 				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'Oops! This page can&rsquo;t be found.', 'universal' ); ?></h1>
+					<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'universal' ); ?></h1>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
-
-					<p><?php _e( 'The URL may be misspelled or the page you are looking for is no longer available.', 'universal' ); ?></p>
-					<p><?php printf( __( 'You can return %s or search for the page you were looking for.', 'universal' ),
-							sprintf( '<a href="%1$s" title="%2$s">%3$s</a>',
-								esc_url( get_home_url() ),
-								esc_attr__( 'Home', 'universal' ),
-								esc_attr__( 'Home', 'universal' )
-							)
-						); ?></p>
+					<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'universal' ); ?></p>
 
 					<?php get_search_form(); ?>
 
-				</div><!-- .entry-content -->
-			</article><!-- #post-0 .post .error404 .not-found -->
+					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
 
-		</div><!-- #content .site-content -->
-	</div><!-- #primary .content-area -->
+					<?php if ( universal_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
+					<div class="widget widget_categories">
+						<h2 class="widgettitle"><?php _e( 'Most Used Categories', 'universal' ); ?></h2>
+						<ul>
+						<?php
+							wp_list_categories( array(
+								'orderby'    => 'count',
+								'order'      => 'DESC',
+								'show_count' => 1,
+								'title_li'   => '',
+								'number'     => 10,
+							) );
+						?>
+						</ul>
+					</div><!-- .widget -->
+					<?php endif; ?>
+
+					<?php
+					/* translators: %1$s: smiley */
+					$archive_content = '<p>' . sprintf( __( 'Try looking in the monthly archives. %1$s', 'universal' ), convert_smilies( ':)' ) ) . '</p>';
+					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+					?>
+
+					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
+
+				</div><!-- .entry-content -->
+			</article><!-- #post-0 .post .not-found -->
+
+		</div><!-- #content -->
+	</div><!-- #primary -->
 
 <?php get_footer(); ?>
