@@ -1,7 +1,6 @@
 <?php
 /**
- * @package Universal
- * @since Universal 1.0
+ * @package universal
  */
 ?>
 
@@ -32,7 +31,12 @@
 			</div><!-- end of #author-meta -->
 		<?php endif; // no description, no author's meta ?>
 
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'universal' ), 'after' => '</div>' ) ); ?>
+		<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'universal' ),
+				'after'  => '</div>',
+			) );
+		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
@@ -72,4 +76,4 @@
 
 		<?php edit_post_link( __( 'Edit', 'universal' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
-</article><!-- #post-<?php the_ID(); ?> -->
+</article><!-- #post-<?php esc_html( the_ID() ); ?> -->

@@ -4,12 +4,11 @@
  *
  * Contains the closing of the id=main div and all content after
  *
- * @package Universal
- * @since Universal 1.0
+ * @package universal
  */
 ?>
 
-	</div><!-- #main .site-main -->
+	</div><!-- #main -->
 
 	<footer id="footer" class="site-footer" role="contentinfo">
 
@@ -36,8 +35,8 @@
 			<a href="<?php echo esc_url('http://universalthe.me/'); ?>" title="<?php esc_attr('Universal Theme'); ?>"><?php printf('Universal Theme'); ?></a>
             <?php esc_attr_e('powered by', 'universal'); ?> <a href="<?php echo esc_url(__('http://wordpress.org/','universal')); ?>" title="<?php esc_attr('WordPress'); ?>"><?php printf('WordPress'); ?></a>
 		</div><!-- .site-info -->
-	</footer><!-- #colophon .site-footer -->
-</div><!-- #page .hfeed .site -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
 
 <?php wp_footer(); ?>
 

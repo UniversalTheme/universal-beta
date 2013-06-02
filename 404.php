@@ -6,11 +6,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 /**
  * The template for displaying 404 pages (Not Found).
  *
- * @file			404.php
- * @package			Universal 
- * @filesource		wp-content/themes/universal/404.php
- * @link			http://codex.wordpress.org/Creating_an_Error_404_Page
- * @since			Universal 1.0
+ * @package Universal
  */
 
 get_header(); ?>
@@ -18,7 +14,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-			<article id="post-0" class="post error404 not-found">
+			<article id="post-0" class="post not-found">
 				<header class="entry-header">
 					<h1 class="entry-title"><?php _e( 'Oops! This page can&rsquo;t be found.', 'universal' ); ?></h1>
 				</header><!-- .entry-header -->
@@ -37,9 +33,9 @@ get_header(); ?>
 					<?php get_search_form(); ?>
 
 				</div><!-- .entry-content -->
-			</article><!-- #post-0 .post .error404 .not-found -->
+			</article><!-- #post-0 .post .not-found -->
 
-		</div><!-- #content .site-content -->
-	</div><!-- #primary .content-area -->
+		</div><!-- #content -->
+	</div><!-- #primary -->
 
 <?php get_footer(); ?>

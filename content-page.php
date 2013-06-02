@@ -3,7 +3,6 @@
  * The template used for displaying page content in page.php
  *
  * @package Universal
- * @since Universal 1.0
  */
 ?>
 
@@ -14,7 +13,12 @@
 
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'universal' ), 'after' => '</div>' ) ); ?>
-		<?php edit_post_link( __( 'Edit', 'universal' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'universal' ),
+				'after'  => '</div>',
+			) );
+		?>
 	</div><!-- .entry-content -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	<?php edit_post_link( __( 'Edit', 'universal' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
+</article><!-- #post-<?php esc_html( the_ID() ); ?> -->

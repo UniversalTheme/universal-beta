@@ -1,13 +1,12 @@
 <?php
 /**
- * @package Universal
- * @since Universal 1.0
+ * @package universal
  */
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'universal' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
@@ -30,9 +29,12 @@
 		<?php endif; ?>
 
 		<?php the_content( __( 'Read more <span class="meta-nav">&rarr;</span>', 'universal' ) ); ?>
-
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'universal' ), 'after' => '</div>' ) ); ?>
-
+		<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'universal' ),
+				'after'  => '</div>',
+			) );
+		?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 
@@ -44,7 +46,7 @@
 				if ( $categories_list && universal_categorized_blog() ) :
 			?>
 			<span class="cat-links">
-				<?php printf( __( 'Posted in %s', 'universal' ), $categories_list ); ?>
+				<?php printf( __( 'Posted in %1$s', 'universal' ), $categories_list ); ?>
 			</span>
 			<?php endif; // End if categories ?>
 
