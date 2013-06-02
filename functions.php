@@ -22,26 +22,6 @@ if ( ! function_exists( 'universal_setup' ) ) :
 function universal_setup() {
 
 	/**
-	 * Custom template tags for this theme.
-	 */
-	require( get_template_directory() . '/inc/template-tags.php' );
-
-	/**
-	 * Custom functions that act independently of the theme templates
-	 */
-	require( get_template_directory() . '/inc/extras.php' );
-
-	/**
-	 * Custom Theme Options
-	 */
-	require( get_template_directory() . '/inc/theme-options/theme-options.php' );
-
-	/**
-	 * Customizer additions
-	 */
-	require( get_template_directory() . '/inc/customizer.php' );
-
-	/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
 	 * If you're building a theme based on Universal, use a find and replace
