@@ -80,6 +80,17 @@ get_header(); ?>
 							echo apply_filters( 'tag_archive_meta', '<div class="taxonomy-description">' . $tag_description . '</div>' );
 						endif;
 
+					elseif ( is_author() ) :
+						// show author avatar
+						if (function_exists('get_avatar')) :
+							echo get_avatar( get_the_author_meta('email'), '80' ); 
+						
+						// show an optional author description
+						$author_description = the_author_meta('description');
+						if ( ! empty( $author_description ) )
+							echo apply_filters( 'author_archive_meta', '<div class="taxonomy-description">' . $author_description . '</div>' );
+						endif;
+
 					endif;
 				?>
 			</header><!-- .page-header -->
