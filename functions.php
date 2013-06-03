@@ -198,3 +198,9 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load Universal specific file
  */
 require get_template_directory() . '/inc/universal.php';
+
+/**
+ * Load Universal theme options
+ */
+require get_template_directory() . '/inc/theme-options/theme-options.php';
+
