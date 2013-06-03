@@ -336,18 +336,16 @@ function universal_settings_field_social_icons() {
 /**
  * Renders the Theme Options administration screen.
  *
- * @since Universal 1.0
  */
 function universal_theme_options_render_page() {
 	?>
-	<div class="wrap about-wrap">
+	<div class="wrap">
 		<?php screen_icon(); ?>
 		<?php $theme_name = function_exists( 'wp_get_theme' ) ? wp_get_theme() : get_current_theme(); ?>
 		<h2><?php printf( __( '%s Theme Options', 'universal' ), $theme_name ); ?></h2>
 		<?php settings_errors(); ?>
-		<?php universal_theme_options_page_tabs(); ?>
-
-		<form method="post" action="' . add_query_arg( array( 'page' => 'theme_options', 'tab' => 'sample' ) ) . '">
+ 
+		<form method="post" action="options.php">
 			<?php
 				settings_fields( 'universal_options' );
 				do_settings_sections( 'theme_options' );
