@@ -133,7 +133,6 @@ function universal_scripts() {
 	wp_enqueue_style( 'universal-style', get_stylesheet_uri() );
 
 	wp_enqueue_style( 'universal-style2', get_stylesheet_directory_uri() . '/universal.css', array(''), '', '' );
-}
 
 	wp_enqueue_script( 'universal-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
