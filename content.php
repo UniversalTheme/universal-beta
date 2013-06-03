@@ -1,6 +1,6 @@
 <?php
 /**
- * @package universal
+ * @package Universal
  */
 ?>
 

@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package universal
+ * @package Universal
  */
 
 if ( ! function_exists( 'universal_content_nav' ) ) :
@@ -131,7 +131,6 @@ function universal_posted_on() {
 	);
 }
 endif;
-
 /**
  * Returns true if a blog has more than 1 category
  */

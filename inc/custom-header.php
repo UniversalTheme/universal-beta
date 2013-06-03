@@ -4,7 +4,7 @@
  * http://codex.wordpress.org/Custom_Headers
  *
  *
- * @package universal
+ * @package Universal
  */
 
 /**
@@ -61,7 +61,7 @@ add_action( 'after_setup_theme', 'universal_custom_header_setup' );
  * @todo Remove this function when WordPress 3.6 is released.
  * @return stdClass All properties represent attributes of the curent header image.
  *
- * @package universal
+ * @package Universal
  */
 
 if ( ! function_exists( 'get_custom_header' ) ) {

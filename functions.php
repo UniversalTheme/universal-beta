@@ -2,7 +2,7 @@
 /**
  * Universal functions and definitions
  *
- * @package universal
+ * @package Universal
  */
 
 /**
@@ -127,35 +127,20 @@ function universal_widgets_init() {
 add_action( 'widgets_init', 'universal_widgets_init' );
 
 /**
- * Allow shortcodes in text widgets
- *
- * @since Universal 1.0
- */
-add_filter( 'widget_text', 'shortcode_unautop');
-add_filter( 'widget_text', 'do_shortcode');
-
-/**
- * Allow shortcodes in excerpts
- *
- * @since Universal 1.0
- */
-add_filter( 'the_excerpt', 'shortcode_unautop');
-add_filter( 'the_excerpt', 'do_shortcode');
-
-/**
  * Enqueue scripts and styles
  */
 function universal_scripts() {
 	wp_enqueue_style( 'universal-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'universal-style2', get_stylesheet_uri() . '/universal.css' );
+
 	wp_enqueue_script( 'universal-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'universal-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
+	wp_enqueue_script( 'universal-modernizr', get_template_directory_uri() . '/js/modernizr.js', array( 'jquery' ), '20121118', true );
 
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', array( 'jquery' ), '20121118', true );
-
-	wp_enqueue_script( 'fitvids', get_template_directory_uri() . '/js/fitvids.js', array( 'jquery' ), '20121118', true );
+	wp_enqueue_script( 'universal-fitvids', get_template_directory_uri() . '/js/fitvids.js', array( 'jquery' ), '20121118', true );
 
 	wp_enqueue_script( 'universal-scripts', get_template_directory_uri() . '/js/universal-scripts.js', array( 'jquery' ), '20121118', true );
 
@@ -170,7 +155,7 @@ function universal_scripts() {
 add_action( 'wp_enqueue_scripts', 'universal_scripts' );
 
 /**
- * Implement the Custom Header feature
+ * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
 
@@ -203,4 +188,3 @@ require get_template_directory() . '/inc/universal.php';
  * Load Universal theme options
  */
 require get_template_directory() . '/inc/theme-options/theme-options.php';
-

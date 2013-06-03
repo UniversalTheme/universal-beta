@@ -2,7 +2,7 @@
 /**
  * Universal Theme Customizer
  *
- * @package universal
+ * @package Universal
  */
 
 /**

@@ -8,7 +8,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package universal
+ * @package Universal
  */
 ?>
 

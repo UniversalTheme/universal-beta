@@ -5,13 +5,10 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
  * The Header for our theme.
+ *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @file			header.php
- * @package			Universal
- * @filesource		wp-content/themes/universal/header.php
- * @link			http://codex.wordpress.org/Theme_Development#Document_Head_.28header.php.29
- * @since			Universal 1.0
+ * @package Universal
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
