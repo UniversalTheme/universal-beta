@@ -28,6 +28,15 @@ if ( !defined( 'ABSPATH' ) ) exit;
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<?php do_action( 'before' ); ?>
+
+	<?php if ( has_nav_menu( 'top-menu', 'universal' ) ) { 
+		wp_nav_menu( array(
+			'fallback_cb'    =>  false,
+			'menu_class'     => 'top-menu',
+			'theme_location' => 'top-menu' )
+		); 
+	} ?>
+
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

@@ -51,9 +51,9 @@ function universal_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	 */
 	register_nav_menus( array(
-		'top-menu'		=> __( 'Top Menu', 'universal' ),
-		'primary'		=> __( 'Primary Menu', 'universal' ),
-		'footer-menu'	=> __( 'Footer Menu', 'responsive' )
+		'top-menu'    => __( 'Top Menu', 'universal' ),
+		'primary'     => __( 'Primary Menu', 'universal' ),
+		'footer-menu' => __( 'Footer Menu', 'responsive' )
 	) );
 
 	/**
@@ -170,32 +170,6 @@ function universal_scripts() {
 add_action( 'wp_enqueue_scripts', 'universal_scripts' );
 
 /**
- * Apply styles to the visual editor
- * Specifically Font Awesome
- */
-add_filter('mce_css', 'tuts_mcekit_editor_style');
-function tuts_mcekit_editor_style($url) {
-    if ( !empty($url) )
-        $url .= ',';
-    // Retrieves the plugin directory URL and adds editor stylesheet
-    $url .= trailingslashit( get_template_directory_uri() ) . '/font/font-awesome.css';
-    return $url;
-}
-
-/**
- * This function removes WordPress generated category and tag atributes.
- * For W3C validation purposes only.
- * 
- */
-function responsive_category_rel_removal ( $output ) {
-	$output = str_replace( ' rel="category tag"', '', $output );
-	return $output;
-}
-
-add_filter('wp_list_categories', 'responsive_category_rel_removal');
-add_filter('the_category', 'responsive_category_rel_removal');
-
-/**
  * Implement the Custom Header feature
  */
 require get_template_directory() . '/inc/custom-header.php';
@@ -220,3 +194,7 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+/**
+ * Load Universal specific file
+ */
+require get_template_directory() . '/inc/universal.php';

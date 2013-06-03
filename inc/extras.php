@@ -24,6 +24,10 @@ function universal_body_classes( $classes ) {
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
+	// Adds a class of front-page to front page
+	if( is_front_page() ) {
+		$classes[] = 'front-page';
+	}
 
 	return $classes;
 }
