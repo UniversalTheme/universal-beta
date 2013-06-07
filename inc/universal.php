@@ -42,12 +42,14 @@ function responsive_category_rel_removal ( $output ) {
 add_filter('wp_list_categories', 'responsive_category_rel_removal');
 add_filter('the_category', 'responsive_category_rel_removal');
 
-if (!function_exists('universal_social_icons')) :
+
 
 /**
  * Universal Social Icons
  * 
  */
+if (!function_exists('universal_social_icons')) :
+
 function universal_social_icons() {
 
 	$options = get_option('universal_theme_options');
@@ -67,6 +69,39 @@ function universal_social_icons() {
 		echo '</ul><!-- end of .social-icons -->';
 
 } // end universal_social_icons
+
+endif;
+
+/*
+ * Universal Default Widgets
+ * 
+ */
+if (!function_exists('universal_default_widgets')) :
+function universal_default_widgets() {
+
+	?>
+	<aside id="search" class="widget widget_search">
+		<?php get_search_form(); ?>
+	</aside>
+
+	<aside id="archives" class="widget">
+		<h1 class="widget-title"><?php _e( 'Archives', 'universal' ); ?></h1>
+		<ul>
+			<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+		</ul>
+	</aside>
+
+	<aside id="meta" class="widget">
+		<h1 class="widget-title"><?php _e( 'Meta', 'universal' ); ?></h1>
+		<ul>
+			<?php wp_register(); ?>
+			<li><?php wp_loginout(); ?></li>
+			<?php wp_meta(); ?>
+		</ul>
+	</aside>
+	<?php
+
+} // end universal_default_widgets
 
 endif;
 

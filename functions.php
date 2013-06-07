@@ -59,7 +59,7 @@ function universal_setup() {
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	add_theme_support( 'post-formats', array( 'aside', 'gallery', 'status ', 'image', 'video', 'audio ', 'quote', 'link', 'chat' ) );
 }
 endif; // universal_setup
 add_action( 'after_setup_theme', 'universal_setup' );
@@ -102,6 +102,7 @@ function universal_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Main Sidebar', 'universal' ),
 		'id'            => 'main-sidebar',
+		'description'   => 'Drag and drop widgets here.',
 		'before_widget' => '<aside id="%1$s" class="widget-wrapper %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
@@ -110,6 +111,7 @@ function universal_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Header Sidebar', 'universal' ),
 		'id'            => 'header-sidebar',
+		'description'   => 'Drag and drop widgets here.',
 		'before_widget' => '<aside id="%1$s" class="widget-wrapper %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
@@ -118,6 +120,7 @@ function universal_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Home Sidebar', 'universal' ),
 		'id'            => 'home-sidebar',
+		'description'   => 'Drag and drop widgets here.',
 		'before_widget' => '<aside id="%1$s" class="widget-wrapper %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
@@ -140,9 +143,9 @@ function universal_scripts() {
 
 	wp_enqueue_script( 'universal-modernizr', get_template_directory_uri() . '/js/modernizr.js', array( 'jquery' ), '20121118', true );
 
-	wp_enqueue_script( 'universal-fitvids', get_template_directory_uri() . '/js/fitvids.js', array( 'jquery' ), '20121118', true );
+	wp_enqueue_script( 'universal-fitvids', get_template_directory_uri() . '/js/fluidvids.min.js', array(), '20130607', true );
 
-	wp_enqueue_script( 'universal-scripts', get_template_directory_uri() . '/js/universal-scripts.js', array( 'jquery' ), '20121118', true );
+	wp_enqueue_script( 'universal-scripts', get_template_directory_uri() . '/js/universal-scripts.js', array(), '20130607', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
