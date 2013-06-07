@@ -27,6 +27,7 @@
 			var div = document.createElement('div');
 			div.className = 'video-wrap';
 			div.style.width = '100%';
+			div.style.maxWidth = iframe.width;
 			div.style.position = 'relative';
 			div.style.paddingTop = videoRatio + '%';
 			
