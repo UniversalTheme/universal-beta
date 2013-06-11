@@ -27,13 +27,19 @@ function universal_setup() {
 	 * If you're building a theme based on Universal, use a find and replace
 	 * to change 'universal' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'universal', get_template_directory() . '/languages' );
+	$domain = 'universal';
+	// The "theme_locale" filter is also used in load_theme_textdomain()
+	$locale = apply_filters( 'theme_locale', get_locale(), $domain );
+
+	load_textdomain( $domain, WP_LANG_DIR . '/universal/' . $locale . '.mo' );
+	load_theme_textdomain( $domain, get_template_directory() . '/languages/' );
+	load_theme_textdomain( $domain, get_stylesheet_directory() . '/languages/' );
 
 	/**
 	 * Add callback for custom TinyMCE editor stylesheets. (editor-style.css)
 	 * @see http://codex.wordpress.org/Function_Reference/add_editor_style
 	 */
-        add_editor_style();
+	add_editor_style();
 
 	/**
 	 * Add default posts and comments RSS feed links to head

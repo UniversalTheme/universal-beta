@@ -36,6 +36,17 @@ Universal WordPress Theme, Copyright (C) 2012-2013 Ulrich Pogson
 }
 
 
+
+/* =Menu
+-------------------------------------------------------------- */
+.navigation-main li {
+	padding: 0 5px;
+}
+
+.navigation-main ul ul {
+	background: white;
+}
+
 /* =Device specific design
 ----------------------------------------------- */
 
