@@ -37,7 +37,7 @@ function universal_setup() {
 
 	/**
 	 * Add callback for custom TinyMCE editor stylesheets. (editor-style.css)
-	 * @see http://codex.wordpress.org/Function_Reference/add_editor_style
+	 * @link http://codex.wordpress.org/Function_Reference/add_editor_style
 	 */
 	add_editor_style();
 

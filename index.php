@@ -14,6 +14,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
+		<?php echo universal_breadcrumbs(); ?>
 		<div id="content" class="site-content" role="main">
 
 		<?php if ( have_posts() ) : ?>
